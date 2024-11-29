@@ -128,4 +128,24 @@
       </ant-list>
     </view>
   </view>
+
+  <!-- 视频优选 -->
+  <!-- index.axml -->
+  
+  <view class="product-list">
+    <view a:for="{{products}}" a:key="index" class="product-item">
+      <view class="product-image">
+        <image src="{{item.image}}" mode="aspectFill"></image>
+      </view>
+      <view class="product-info">
+        <text class="product-name">{{item.name}}</text>
+        <text class="product-description">{{item.description}}</text>
+        <text class="product-price">¥{{item.price}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 底部导航栏 -->
+
 </view>
+<bottom-nav />

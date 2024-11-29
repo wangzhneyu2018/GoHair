@@ -34,6 +34,49 @@ Page({
   currentIndex: 0,
   notificationCount: 0 // 初始未读通知数量
   },
+  products: [
+    {
+      image: '/images/cart.png',
+      name: '产品名称1',
+      description: '这是产品1的描述信息，详细介绍产品的特点和功能。',
+      price: 99.99
+    },
+    {
+      image: '/images/product2.jpg',
+      name: '产品名称2',
+      description: '这是产品2的描述信息，详细介绍产品的特点和功能。',
+      price: 199.99
+    },
+    {
+      image: '/images/product3.jpg',
+      name: '产品名称3',
+      description: '这是产品3的描述信息，详细介绍产品的特点和功能。',
+      price: 299.99
+    },
+    {
+      image: '/images/product4.jpg',
+      name: '产品名称4',
+      description: '这是产品4的描述信息，详细介绍产品的特点和功能。',
+      price: 399.99
+    }
+  ],
+  tabs: [
+    {
+        icon: 'AlipayCircleFill',
+        activeIcon: 'AlipayCircleFill',
+        text: '首页',
+    },
+    {
+        icon: 'StarOutline',
+        activeIcon: 'StarFill',
+        text: '收藏',
+    },
+    {
+        icon: 'HeartOutline',
+        activeIcon: 'HeartFill',
+        text: '喜欢',
+    },
+],
 
   onLoad(query) {
     // 页面加载
@@ -46,6 +89,55 @@ Page({
         userAvatar: '/images/default-avatar.png',
       });
     }
+    // 将数据加载进去，否则不显示
+    this.setData({
+      products: [
+        {
+          image: '/images/ant.png',
+          name: '产品名称1',
+          description: '这是产品1的描述信息，详细介绍产品的特点和功能。',
+          price: 99.99
+        },
+        {
+          image: '/images/product2.jpg',
+          name: '产品名称2',
+          description: '这是产品2的描述信息，详细介绍产品的特点和功能。',
+          price: 199.99
+        },
+        {
+          image: '/images/product3.jpg',
+          name: '产品名称3',
+          description: '这是产品3的描述信息，详细介绍产品的特点和功能。',
+          price: 299.99
+        },
+        {
+          image: '/images/product4.jpg',
+          name: '产品名称4',
+          description: '这是产品4的描述信息，详细介绍产品的特点和功能。',
+          price: 399.99
+        }
+      ]
+    });
+  // 页面加载时初始化数据
+  this.setData({
+    tabs: [
+      {
+        icon: 'AlipayCircleFill',
+        activeIcon: 'AlipayCircleFill',
+        text: '首页',
+    },
+    {
+        icon: 'StarOutline',
+        activeIcon: 'StarFill',
+        text: '收藏',
+    },
+    {
+        icon: 'HeartOutline',
+        activeIcon: 'HeartFill',
+        text: '喜欢',
+    },
+    ]
+  });
   },
      // 处理搜索框输入
   handleInput(e) {
@@ -66,6 +158,7 @@ Page({
       notificationCount: Math.floor(Math.random() * 120) // 随机生成通知数量
     });
   },
+  
 
   onReady() {
     // 页面加载完成
