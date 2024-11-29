@@ -1,0 +1,17 @@
+
+<view class="custom-navbar">
+  <view class="status-bar-placeholder"></view>
+  <view class="navbar-content">
+    <text>自定义导航栏</text>
+  </view>
+</view>
+<view>
+  <ant-card
+ 
+>
+
+  <view style="height: 200px">
+    模拟一个长卡片内容
+  </view>
+</ant-card>
+</view>
