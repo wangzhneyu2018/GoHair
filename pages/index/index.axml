@@ -1,45 +1,58 @@
+<view  style="Master-conner">
+  <!-- 导航栏 -->
+  <view class="Navigation-bar-style">
+    <view class="search-container">
+      <ant-avatar
+        src="{{userAvatar}}"
+        size="small"
+        fallback-src="/images/default-avatar.png"
+        class="avatar"
+      />
 
-<view >
- <view class="Navigation-bar-style">
-  <view class="search-container">
-    <ant-avatar
-    src="{{userAvatar}}"
-    size="small"
-    fallback-src="/images/default-avatar.png"
-    class="avatar"
-  />
 
-  
-  <!-- 搜索框 -->
-  <view class="search-container">
-   <view class="search-line">
-    <ant-input
-      placeholder="input here"
-      onChange="onChange"
-      className="search-bar"
-      focusClassName="search-bar-focus"
-      confirm-type="search"
-      allowClear
-      focus
-    >
-      <ant-icon slot="prefix" type="SearchOutline" />
-      <ant-icon slot="suffix" type="AudioOutline" />
-    </ant-input>
-    <view class="cancel Descriptive-text">取消</view>
+      <!-- 搜索框 -->
+      <view class="search-container">
+        <view class="search-line">
+          <ant-input
+            placeholder="input here"
+            onChange="onChange"
+            className="search-bar"
+            focusClassName="search-bar-focus"
+            confirm-type="search"
+            allowClear
+            focus
+          >
+            <ant-icon slot="prefix" type="SearchOutline" />
+            <ant-icon slot="suffix" type="AudioOutline" />
+          </ant-input>
+          <view class="cancel Descriptive-text">取消</view>
+        </view>
+      </view>
+      <!-- 定位图标和城市名称 -->
+      <view class="location-container Product-description-text" style="color:#FFFFFF">
+        <ant-icon type="EnvironmentOutline" size="20" color="#1677FF" class="location-icon" />
+        <text class="location-text Product-description-text" style="color:#FFFFFF">
+          {{location}}
+        </text>
+      </view>
+
+
+    </view>
   </view>
-</view>
- <!-- 定位图标和城市名称 -->
- <view class="location-container Product-description-text" style="color:#FFFFFF"">
-  <ant-icon
-    type="EnvironmentOutline"
-    size="20"
-    color="#1677FF"
-    class="location-icon"
-  />
-  <text class="location-text Product-description-text" style="color:#FFFFFF">{{location}}</text>
-</view>
+
+
+  <!-- 分类精选 -->
+  <view class="title-bar">
+    <!-- 左边：推荐分类名称 -->
+    <text class="category-name Secondary-level-title-text">{{recommendedCategory}}</text>
+    
+    <!-- 右边：查看更多按钮 -->
+    <view class="more" onTap="onMoreTap">
+      <text class="Descriptive-text">查看更多</text>
+    </view>
   </view>
- 
-</view>
- 
+
+  <!-- 图文分类 -->
+
+  <!-- 分类精选标题 -->
 </view>

@@ -2,6 +2,7 @@ Page({
   data: {
     userAvatar: '/images/cart.png', // 用户头像URL
     location: '北京', // 定位的城市名称
+    recommendedCategory: '热门分类', // 推荐分类的名称
   },
 
   onLoad(query) {
@@ -20,6 +21,12 @@ Page({
   handleInput(e) {
     console.log('Search input:', e.detail.value);
   
+  },
+  onMoreTap() {
+    my.alert({
+      title: '提示',
+      content: '点击了查看更多',
+    });
   },
 
   onReady() {
