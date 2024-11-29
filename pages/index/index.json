@@ -3,5 +3,8 @@
   "ant-avatar": "antd-mini/es/Avatar/index",
   "ant-icon": "antd-mini/es/Icon/index",
   "ant-input": "antd-mini/es/Input/index",
-  "ant-textarea": "antd-mini/es/Input/Textarea/index"
+  "ant-textarea": "antd-mini/es/Input/Textarea/index",
+  "ant-container": "antd-mini/es/Container/index",
+  "ant-grid": "antd-mini/es/Grid/index",
+  "ant-badge": "antd-mini/es/Badge/index"
 }}

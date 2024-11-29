@@ -3,6 +3,28 @@ Page({
     userAvatar: '/images/cart.png', // 用户头像URL
     location: '北京', // 定位的城市名称
     recommendedCategory: '热门分类', // 推荐分类的名称
+    items5: [
+      {
+          title: '生活缴费',
+          icon: 'https://gw.alipayobjects.com/mdn/rms_3a7189/afts/img/A*MwsuTZI4qA8AAAAAAAAAAAAAARQnAQ',
+      },
+      {
+          title: '市民中心',
+          icon: 'https://gw.alipayobjects.com/mdn/rms_3a7189/afts/img/A*xXRcRohQFc0AAAAAAAAAAAAAARQnAQ',
+      },
+      {
+          title: '公积金',
+          icon: 'https://gw.alipayobjects.com/mdn/rms_3a7189/afts/img/A*UJf2QLxdoa8AAAAAAAAAAAAAARQnAQ',
+      },
+      {
+          title: '出行',
+          icon: 'https://gw.alipayobjects.com/mdn/rms_3a7189/afts/img/A*now3Q4h5DH8AAAAAAAAAAAAAARQnAQ',
+      },
+      {
+          title: '医疗健康',
+          icon: 'https://gw.alipayobjects.com/mdn/rms_3a7189/afts/img/A*I27zQbOu8ScAAAAAAAAAAAAAARQnAQ',
+      },
+  ],
   },
 
   onLoad(query) {

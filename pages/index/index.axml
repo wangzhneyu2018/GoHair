@@ -1,4 +1,4 @@
-<view  style="Master-conner">
+<view style="Master-conner">
   <!-- 导航栏 -->
   <view class="Navigation-bar-style">
     <view class="search-container">
@@ -44,8 +44,10 @@
   <!-- 分类精选 -->
   <view class="title-bar">
     <!-- 左边：推荐分类名称 -->
-    <text class="category-name Secondary-level-title-text">{{recommendedCategory}}</text>
-    
+    <text class="category-name Secondary-level-title-text">
+      {{recommendedCategory}}
+    </text>
+
     <!-- 右边：查看更多按钮 -->
     <view class="more" onTap="onMoreTap">
       <text class="Descriptive-text">查看更多</text>
@@ -53,6 +55,14 @@
   </view>
 
   <!-- 图文分类 -->
-
+  <view class="Container-style"  style="margin-left:0px">
+    <ant-grid 
+    class="ant-grid-style" 
+    iconSize="56"
+    items="{{items5}}" 
+    onTap="handleTapItem" 
+    columns="{{5}}">
+    </ant-grid>
+  </view> 
   <!-- 分类精选标题 -->
 </view>
