@@ -61,9 +61,40 @@
   padding: 5px;
   border-bottom: 1px solid #eaeaea;
 }
-/* 分类图片 */
 
-.ant-grid-style{
-  
+/* 轮播图 */
+.container {
+  position: relative;
 }
 
+.swiper {
+  width: 100%;
+  height: 300rpx;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+}
+
+.indicator {
+  position: absolute;
+  bottom: 10rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+}
+
+.dot {
+  width: 10rpx;
+  height: 10rpx;
+  background-color: #ccc;
+  border-radius: 50%;
+  margin: 0 5rpx;
+  transition: background-color 0.3s ease;
+}
+
+.dot.active {
+  background-color: #007aff;
+}
