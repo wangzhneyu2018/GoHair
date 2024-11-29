@@ -1,17 +1,45 @@
 
-<view class="custom-navbar">
-  <view class="status-bar-placeholder"></view>
-  <view class="navbar-content">
-    <text>自定义导航栏</text>
+<view >
+ <view class="Navigation-bar-style">
+  <view class="search-container">
+    <ant-avatar
+    src="{{userAvatar}}"
+    size="small"
+    fallback-src="/images/default-avatar.png"
+    class="avatar"
+  />
+
+  
+  <!-- 搜索框 -->
+  <view class="search-container">
+   <view class="search-line">
+    <ant-input
+      placeholder="input here"
+      onChange="onChange"
+      className="search-bar"
+      focusClassName="search-bar-focus"
+      confirm-type="search"
+      allowClear
+      focus
+    >
+      <ant-icon slot="prefix" type="SearchOutline" />
+      <ant-icon slot="suffix" type="AudioOutline" />
+    </ant-input>
+    <view class="cancel Descriptive-text">取消</view>
   </view>
 </view>
-<view>
-  <ant-card
- 
->
-
-  <view style="height: 200px">
-    模拟一个长卡片内容
+ <!-- 定位图标和城市名称 -->
+ <view class="location-container Product-description-text" style="color:#FFFFFF"">
+  <ant-icon
+    type="EnvironmentOutline"
+    size="20"
+    color="#1677FF"
+    class="location-icon"
+  />
+  <text class="location-text Product-description-text" style="color:#FFFFFF">{{location}}</text>
+</view>
   </view>
-</ant-card>
+ 
+</view>
+ 
 </view>

@@ -1,4 +1,9 @@
 App({
+  "usingComponents": {
+    "avatar": "ant-design-mini/es/Avatar/index",
+    "icon": "ant-design-mini/es/Icon/index",
+    "input": "ant-design-mini/es/Input/index"
+  },
   onLoad() {
     my.setNavigationBar({
       backgroundColor: '#3629B7', // 导航栏背景颜色

@@ -1,3 +1,7 @@
 {"usingComponents": {
-  "ant-card": "antd-mini/es/Card/index"
+  "ant-card": "antd-mini/es/Card/index",
+  "ant-avatar": "antd-mini/es/Avatar/index",
+  "ant-icon": "antd-mini/es/Icon/index",
+  "ant-input": "antd-mini/es/Input/index",
+  "ant-textarea": "antd-mini/es/Input/Textarea/index"
 }}

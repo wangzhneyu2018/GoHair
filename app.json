@@ -5,7 +5,7 @@
   "window": {
     "defaultTitle": "My App",
     "navigationBarTextStyle": "black", 
-    "titleBarColor": "#0890FE" 
+    "titleBarColor": "#004CFF" 
   },
   "behavior": {
     "requestReferrerStrategy": "page",

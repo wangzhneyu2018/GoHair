@@ -1,8 +1,27 @@
 Page({
+  data: {
+    userAvatar: '/images/cart.png', // 用户头像URL
+    location: '北京', // 定位的城市名称
+  },
+
   onLoad(query) {
     // 页面加载
     console.info(`Page onLoad with query: ${JSON.stringify(query)}`);
+
+     // 模拟用户登录状态
+    // 如果用户未登录，userAvatar 为空字符串，头像会显示默认的灰色头像
+    if (!this.data.userAvatar) {
+      this.setData({
+        userAvatar: '/images/default-avatar.png',
+      });
+    }
   },
+     // 处理搜索框输入
+  handleInput(e) {
+    console.log('Search input:', e.detail.value);
+  
+  },
+
   onReady() {
     // 页面加载完成
   },
