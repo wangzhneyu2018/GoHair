@@ -31,7 +31,8 @@ Page({
     {imageUrl: '/images/home.png'},
     // 更多图片数据...
   ],
-  currentIndex: 0
+  currentIndex: 0,
+  notificationCount: 0 // 初始未读通知数量
   },
 
   onLoad(query) {
@@ -60,6 +61,9 @@ Page({
   onChange(e) {
     this.setData({
       currentIndex: e.detail.current
+    });
+    this.setData({
+      notificationCount: Math.floor(Math.random() * 120) // 随机生成通知数量
     });
   },
 

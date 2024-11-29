@@ -96,5 +96,61 @@
 }
 
 .dot.active {
-  background-color: #007aff;
+  background-color: #4392F9;
+}
+/* 通知中心 */
+.Notice-style {
+  margin-top: 10px ;
+  border-radius: 8px;
+  background: #4392F9;
+}
+.notification-center {
+  display: flex;
+  justify-content: space-between;
+  /* align-items: center; */
+  padding: 8px;
+  border-bottom: 1px solid #ccc;
+}
+
+.left-text {
+  font-size: 16px;
+  color: #faf8f8;
+}
+
+.right-icon {
+  position: relative;
+  padding-right: 20px;
+}
+
+.icon {
+  width: 18px;
+  height: 18px;
+  color: #faf8f8;
+}
+
+.badge {
+  position: absolute;
+  top: -8px;
+  right: -5px;
+  background-color: #ff4d4f;
+  color: white;
+  border-radius: 50%;
+  width: auto;
+  padding: 0 5px;
+  min-width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+}
+
+.badge-text {
+  line-height: 1;
+}
+/* 通知内容 */
+.notice-text {
+  background-color: #4392F9;
+  color: #fff;
+  font-size: 16px;
 }

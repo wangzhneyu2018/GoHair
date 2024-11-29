@@ -58,7 +58,7 @@
   <view class="Container-style" style="margin-left:0px">
     <ant-grid
       class="ant-grid-style"
-      iconSize="56"
+      iconSize="45"
       items="{{items5}}"
       onTap="handleTapItem"
       columns="{{5}}"
@@ -67,14 +67,65 @@
   </view>
   <!-- 轮播图 -->
   <view class="container">
-    <swiper class="swiper" autoplay="{{true}}" interval="3000" duration="500" current="{{currentIndex}}" onChange="onChange">
+    <swiper
+      class="swiper"
+      autoplay="{{true}}"
+      interval="3000"
+      duration="500"
+      current="{{currentIndex}}"
+      onChange="onChange"
+    >
       <swiper-item a:for="{{imageList}}" a:key="index">
         <image src="{{item.imageUrl}}" mode="aspectFill" class="image"></image>
       </swiper-item>
     </swiper>
     <view class="indicator Container-style">
-      <view a:for="{{imageList}}" a:key="index" class="dot {{index === currentIndex ? 'active' : ''}}"></view>
+      <view a:for="{{imageList}}" a:key="index" class="dot {{index === currentIndex ? 'active' : ''}}">
+      </view>
     </view>
   </view>
+  <!-- 通知中心 -->
+  <view class="Notice-style">
+    <!-- 通知图标 -->
+    <view >
+      <view class="notification-center">
+        <view class="left-text Secondary-level-title-text">最新通知</view>
+        <view class="right-icon">
+          <ant-icon type="BellOutline" style="font-size: 20px" />
+          <view a:if="{{notificationCount > 0}}" class="badge">
+            <text class="badge-text">
+              {{notificationCount > 99 ? '99+' : notificationCount}}
+            </text>
+          </view>
+        </view>
+      </view>
+    </view>
 
+    <!-- 通知内容 -->
+    <view >
+      <ant-list >
+        <ant-list-item class="notice-text" catchTap="catchTap" data-info="系统通知">
+          <ant-icon slot="image" type="AlipaySquareFill" style="font-size:60rpx;">
+          </ant-icon>
+          系统通知
+          <ant-button slot="extra" size="small" inline>
+            15小时前
+          </ant-button>
+        </ant-list-item>
+      </ant-list>
+    </view>
+
+    <view >
+      <ant-list >
+        <ant-list-item class="notice-text" catchTap="catchTap" data-info="系统通知">
+          <ant-icon slot="image" type="AlipaySquareFill" style="font-size:60rpx;">
+          </ant-icon>
+          活动通知
+          <ant-button slot="extra" size="small" inline>
+            10小时前
+          </ant-button>
+        </ant-list-item>
+      </ant-list>
+    </view>
+  </view>
 </view>

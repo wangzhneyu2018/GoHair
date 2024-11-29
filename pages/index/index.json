@@ -6,5 +6,8 @@
   "ant-textarea": "antd-mini/es/Input/Textarea/index",
   "ant-container": "antd-mini/es/Container/index",
   "ant-grid": "antd-mini/es/Grid/index",
-  "ant-badge": "antd-mini/es/Badge/index"
+  "ant-badge": "antd-mini/es/Badge/index",
+  "ant-list": "antd-mini/es/List/index",
+  "ant-list-item": "antd-mini/es/List/ListItem/index",
+  "ant-button": "antd-mini/es/Button/index"
 }}
