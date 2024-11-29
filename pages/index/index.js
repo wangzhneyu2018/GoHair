@@ -25,6 +25,13 @@ Page({
           icon: 'https://gw.alipayobjects.com/mdn/rms_3a7189/afts/img/A*I27zQbOu8ScAAAAAAAAAAAAAARQnAQ',
       },
   ],
+  imageList: [
+    {imageUrl: '/images/cart.png'},
+    {imageUrl: '/images/clear.png'},
+    {imageUrl: '/images/home.png'},
+    // 更多图片数据...
+  ],
+  currentIndex: 0
   },
 
   onLoad(query) {
@@ -48,6 +55,11 @@ Page({
     my.alert({
       title: '提示',
       content: '点击了查看更多',
+    });
+  },
+  onChange(e) {
+    this.setData({
+      currentIndex: e.detail.current
     });
   },
 
