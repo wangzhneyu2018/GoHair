@@ -1,0 +1,29 @@
+<view class="container">
+  <!-- 左侧分类列表 -->
+  <scroll-view class="category-list" scroll-y="{{true}}">
+    <view
+      a:for="{{categories}}"
+      key="{{item.id}}"
+      class="category-item {{currentCategory === item.id ? 'active' : ''}}"
+      onTap="onCategoryTap"
+      data-categoryId="{{item.id}}"
+    >
+      {{item.name}}
+    </view>
+  </scroll-view>
+
+  <!-- 右侧产品列表 -->
+  <scroll-view class="product-list" scroll-y="{{true}}">
+    <view class="product-row">
+      <view
+        a:for="{{products}}"
+        key="{{item.id}}"
+        class="product-item"
+      >
+        <image class="product-image" src="{{item.image}}" mode="scaleToFill"/>
+        <view class="product-name">{{item.name}}</view>
+        <view class="product-price">¥{{item.price}}</view>
+      </view>
+    </view>
+  </scroll-view>
+</view>
