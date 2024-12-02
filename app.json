@@ -1,12 +1,14 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/category/category"
+    "pages/category/category",
+    "pages/cart/cart",
+    "pages/profile/profile"
   ],
   "window": {
     "defaultTitle": "My App",
     "navigationBarTextStyle": "black", 
-    "titleBarColor": "#4392F9" 
+    "titleBarColor": "#4392F9"
   },
   "behavior": {
     "requestReferrerStrategy": "page",

@@ -1,1 +1,7 @@
-{}
+{
+  "usingComponents": {
+    "ant-input": "antd-mini/es/Input/index",
+    "ant-icon": "antd-mini/es/Icon/index",
+    "ant-textarea": "antd-mini/es/Input/Textarea/index"
+  }
+}

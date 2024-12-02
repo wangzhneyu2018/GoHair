@@ -4,7 +4,7 @@ Component({
       { icon: '/images/home.png', text: '首页', page: 'index' },
       { icon: '/images/category.png', text: '分类', page: 'category' },
       { icon: '/images/cart.png', text: '购物车', page: 'cart' },
-      { icon: '/images/user.png', text: '我的', page: 'user' }
+      { icon: '/images/profile.png', text: '我的', page: 'profile' }
     ]
   },
 
