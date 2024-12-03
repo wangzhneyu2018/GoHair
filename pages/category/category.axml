@@ -1,48 +1,25 @@
-<view>
-  <!-- 搜索框 -->
-  <view class="search-line">
-    <ant-input
-      placeholder="input here"
-      onChange="onChange"
-      className="search-bar"
-      focusClassName="search-bar-focus"
-      confirm-type="search"
-      allowClear
-      focus
-    >
-      <ant-icon slot="prefix" type="SearchOutline" />
-      <ant-icon slot="suffix" type="AudioOutline" />
-    </ant-input>
-    <view class="cancel">取消</view>
+<view class="container">
+  <!-- Header -->
+  <view class="header">
+    <view class="header-left">
+      <image class="back-icon" src="/images/back.png" onTap="onBack" />
+      <text class="header-title">全部</text>
+    </view>
+    <view class="header-right">
+      <image class="header-icon" src="/images/scan.png" />
+      <image class="header-icon" src="/images/more.png" />
+      <image class="header-icon" src="/images/close.png" onTap="onClose" />
+    </view>
   </view>
-  <!-- 产品分类 -->
-  <view class="container">
-    <!-- 左侧分类列表 -->
-    <scroll-view class="category-list" scroll-y="{{true}}">
-      <view
-        a:for="{{categories}}"
-        key="{{item.id}}"
-        class="category-item {{currentCategory === item.id ? 'active' : ''}}"
-        onTap="onCategoryTap"
-        data-categoryId="{{item.id}}"
-      >
-        {{item.name}}
+
+  <!-- Category Grid -->
+  <view class="category-grid">
+    <view class="category-item" a:for="{{categories}}" key="{{index}}" onTap="onCategoryTap" data-category="{{item}}">
+      <view class="category-card">
+        <text class="category-name">{{item.name}}</text>
+        <image class="category-image" src="{{item.image}}" mode="aspectFit" />
       </view>
-    </scroll-view>
-  
-    <!-- 右侧产品列表 -->
-    <scroll-view class="product-list" scroll-y="{{true}}">
-      <view class="product-row">
-        <view
-          a:for="{{products}}"
-          key="{{item.id}}"
-          class="product-item"
-        >
-          <image class="product-image" src="{{item.image}}" mode="scaleToFill"/>
-          <view class="product-name">{{item.name}}</view>
-          <view class="product-price">¥{{item.price}}</view>
-        </view>
-      </view>
-    </scroll-view>
+    </view>
   </view>
 </view>
+

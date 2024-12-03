@@ -61,7 +61,7 @@ Page({
         id: 4,
         name: "HUAWEI Watch GT4",
         price: "¥35.99/天",
-        image: "/images/product/product4.jpg"
+        image: "/images/product/4.jpg"
       },
       {
         id: 4,

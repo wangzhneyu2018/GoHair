@@ -1,67 +1,39 @@
 Page({
   data: {
     categories: [
-      { id: 1, name: '电子产品' },
-      { id: 2, name: '家居用品' },
-      { id: 3, name: '服装鞋帽' },
-      // 更多分类...
-    ],
-    products: [],
-    currentCategory: 1, // 默认选中第一个分类
+      { name: '租手机', image: '/images/categories/phone.png' },
+      { name: '租相机', image: '/images/categories/camera.png' },
+      { name: '租车', image: '/images/categories/car.png' },
+      { name: '租房', image: '/images/categories/house.png' },
+      { name: '租电脑', image: '/images/categories/laptop.png' },
+      { name: '租平板', image: '/images/categories/tablet.png' },
+      { name: '租智能手表', image: '/images/categories/smartwatch.png' },
+      { name: '租耳机音响', image: '/images/categories/headphone.png' },
+      { name: '租奢包腕表', image: '/images/categories/luxury.png' },
+      { name: '租无人机', image: '/images/categories/drone.png' },
+      { name: '租游戏VR', image: '/images/categories/vr.png' },
+      { name: '租家用电器', image: '/images/categories/appliance.png' },
+      { name: '租医疗护理', image: '/images/categories/medical.png' },
+      { name: '租户外装备', image: '/images/categories/outdoor.png' },
+      { name: '租母婴用品', image: '/images/categories/baby.png' },
+      { name: '租图书', image: '/images/categories/book.png' }
+    ]
   },
 
-  onLoad(options) {
-    const categoryId = options.categoryId || 1; // 从跳转参数中获取分类ID，默认为1
-    this.setData({
-      currentCategory: categoryId,
+  onBack() {
+    my.navigateBack();
+  },
+
+  onClose() {
+    // 实现关闭逻辑
+    my.navigateBack();
+  },
+
+  onCategoryTap(e) {
+    const category = e.currentTarget.dataset.category;
+    my.navigateTo({
+      url: `/pages/category-detail/category-detail?name=${category.name}`
     });
-    this.loadProducts(categoryId);
-  },
-
-  onCategoryTap(event) {
-    const categoryId = event.currentTarget.dataset.categoryId;
-    if (categoryId) {
-      this.setData({
-        currentCategory: parseInt(categoryId), // 确保 categoryId 是整数
-      });
-      this.loadProducts(parseInt(categoryId));
-    } else {
-      console.error('Category ID is undefined');
-    }
-  },
-
-  loadProducts(categoryId) {
-    // 这里可以根据 categoryId 从服务器获取对应的产品数据
-    // 示例数据
-    let products = [];
-    switch (categoryId) {
-      case 1:
-        products = [
-          { id: 1, name: '手机', price: 5999, image: 'https://example.com/phone.jpg' },
-          { id: 2, name: '平板', price: 3999, image: 'https://example.com/tablet.jpg' },
-          // 更多产品...
-        ];
-        break;
-      case 2:
-        products = [
-          { id: 3, name: '沙发', price: 2999, image: 'https://example.com/sofa.jpg' },
-          { id: 4, name: '床', price: 4999, image: 'https://example.com/bed.jpg' },
-          // 更多产品...
-        ];
-        break;
-      case 3:
-        products = [
-          { id: 5, name: 'T恤', price: 99, image: 'https://example.com/tshirt.jpg' },
-          { id: 6, name: '运动鞋', price: 599, image: 'https://example.com/shoes.jpg' },
-          // 更多产品...
-        ];
-        break;
-      default:
-        products = [];
-    }
-
-    this.setData({
-      products: products,
-    });
-  },
+  }
 });
+

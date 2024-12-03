@@ -6,7 +6,7 @@
     "pages/profile/profile"
   ],
   "window": {
-    "defaultTitle": "My App",
+    "defaultTitle": "金龟分期租",
     "navigationBarTextStyle": "black", 
     "titleBarColor": "#4392F9"
   },
