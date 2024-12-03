@@ -107,6 +107,42 @@ Page({
         tag: "全新",
         rentalStatus: "可买断",
         rentalType: "可续租"
+      },
+      {
+        id: 1,
+        name: "iPhone 15",
+        price: "0.03",
+        image: "/images/product/1.jpg",
+        tag: "全新",
+        rentalStatus: "可买断",
+        rentalType: "可续租"
+      },
+      {
+        id: 2,
+        name: "小米 15 Pro",
+        price: "9.87",
+        image: "/images/product/1.jpg",
+        tag: "全新",
+        rentalStatus: "可买断",
+        rentalType: "可续租"
+      },
+      {
+        id: 3,
+        name: "OPPO Find X7",
+        price: "8.99",
+        image: "/images/product/1.jpg",
+        tag: "全新",
+        rentalStatus: "可买断",
+        rentalType: "可续租"
+      },
+      {
+        id: 4,
+        name: "vivo X100 Pro",
+        price: "10.99",
+        image: "/images/product/1.jpg",
+        tag: "全新",
+        rentalStatus: "可买断",
+        rentalType: "可续租"
       }
     ]
     
