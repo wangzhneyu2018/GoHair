@@ -1,87 +1,82 @@
 <view class="container">
   <!-- 头部导航 -->
-  <!-- <view class="header"> -->
-    <!-- <icon type="back" onTap="goBack" />  -->
-    <!-- <view class="brand">
-      <text class="brand-name">金龟相伴 财运亨通！</text>
-      <text class="brand-slogan">金龟相伴 财运亨通！</text>
-    </view>  -->
-    <!-- <view class="header-icons">
-      <view class="icon-btn">
-        <image class="icon" src="/assets/qr-code.png" mode="aspectFit" />
-      </view>
-      <view class="icon-btn">
-        <image class="icon" src="/assets/more.png" mode="aspectFit" />
-      </view>
-      <view class="icon-btn">
-        <image class="icon" src="/assets/close.png" mode="aspectFit" />
-      </view>
-    </view> -->
-  <!-- </view> -->
+  <!--<view class="header"> -->
+  <!--<icon type="back" onTap="goBack" />  -->
+  <!--<view class="brand"><text class="brand-name">金龟相伴 财运亨通！</text><text class="brand-slogan">金龟相伴 财运亨通！</text></view>  -->
+  <!--<view class="header-icons"><view class="icon-btn"><image class="icon" src="/assets/qr-code.png" mode="aspectFit" /></view><view class="icon-btn"><image class="icon" src="/assets/more.png" mode="aspectFit" /></view><view class="icon-btn"><image class="icon" src="/assets/close.png" mode="aspectFit" /></view></view> -->
+  <!--</view> -->
 
   <!-- 搜索栏 -->
   <view class="search-bar-container">
     <view class="search-bar">
       <view class="search-input">
-        <image class="search-icon" src="/images/icon/no_search_result.png" mode="aspectFit" />
+        <image
+          class="search-icon"
+          src="/images/icon/no_search_result.png"
+          mode="aspectFit"
+        />
         <input type="text" placeholder="金龟相伴 财运亨通" />
         <button class="search-button-1">搜索</button>
       </view>
-     
+
     </view>
   </view>
 
 
   <!-- 分类导航 -->
   <view class="category-grid">
-    <view class="category-item" a:for="{{categories}}" key="{{item.id}}">
+    <view a:for="{{categories}}" class="category-item" key="{{item.id}}">
       <image class="category-icon" src="{{item.icon}}" mode="aspectFit" />
       <text class="category-name">{{item.name}}</text>
-      <text class="category-desc" a:if="{{item.desc}}">{{item.desc}}</text>
+      <text a:if="{{item.desc}}" class="category-desc">{{item.desc}}</text>
     </view>
   </view>
 
   <!-- 促销标签 -->
   <view class="promo-tags">
     <view class="tag-scroll">
-      <view class="tag-item" a:for="{{promoTags}}" key="{{item.id}}">
+      <view a:for="{{promoTags}}" class="tag-item" key="{{item.id}}">
         <text>{{item.name}}</text>
       </view>
     </view>
   </view>
 
-  <!-- 商品列表 -->
-  <view class="product-list">
-    <!-- 大banner商品 -->
-    <view class="product-banner">
-      <image src="/assets/iphone16-banner.png" mode="aspectFill" />
-      <view class="banner-content">
-        <text class="banner-title">iPhone16新机超值租</text>
-        <text class="banner-subtitle">新户立减88元</text>
-        <button class="banner-button">去看看</button>
-      </view>
-    </view>
-
-    <!-- 商品网格 -->
-    <view class="product-grid">
-      <view class="product-item" a:for="{{products}}" key="{{item.id}}">
-        <view class="product-tag" a:if="{{item.tag}}">{{item.tag}}</view>
-        <image class="product-image" src="{{item.image}}" mode="aspectFit" />
-        <view class="product-info">
-          <text class="product-name">{{item.name}}</text>
-          <view class="product-price">
-            <text class="price-symbol">¥</text>
-            <text class="price-amount">{{item.price}}</text>
-            <text class="price-unit">/天</text>
-          </view>
-          <view class="product-tags">
-            <text a:for="{{item.tags}}" key="{{tag}}" class="tag">{{tag}}</text>
+  <!-- 商品轮播图-->
+  <view class="carousel-container">
+    <swiper
+      indicator-dots="{{true}}"
+      indicator-color="rgba(0, 0, 0, .3)"
+      indicator-active-color="#000000"
+      autoplay="{{true}}"
+      interval="{{3000}}"
+      duration="{{500}}"
+      circular="{{true}}"
+      onChange="onSwiperChange"
+    >
+      <swiper-item a:for="{{products}}" key="{{index}}">
+        <view class="product-item">
+          <image src="{{item.image}}" mode="aspectFill" />
+          <view class="product-info">
+            <text class="product-name">{{item.name}}</text>
+            <text class="product-price">{{item.price}}</text>
           </view>
         </view>
-      </view>
+      </swiper-item>
+    </swiper>
+    <view class="custom-indicators">
+      <view 
+        class="indicator {{currentIndex === index ? 'active' : ''}}" 
+        a:for="{{products}}" 
+        key="{{index}}"
+      ></view>
     </view>
   </view>
+  
+  
+  
+  
+
+
   <bottom-nav></bottom-nav>
 </view>
-
 
