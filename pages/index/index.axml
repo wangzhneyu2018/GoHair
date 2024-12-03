@@ -64,19 +64,44 @@
       </swiper-item>
     </swiper>
     <view class="custom-indicators">
-      <view 
-        class="indicator {{currentIndex === index ? 'active' : ''}}" 
-        a:for="{{products}}" 
+      <view
+        a:for="{{products}}"
+        class="indicator {{currentIndex === index ? 'active' : ''}}"
         key="{{index}}"
-      ></view>
+      >
+      </view>
     </view>
   </view>
-  
-  
-  
-  
+
+
+  <!-- 产品列表 -->
+  <view class="product-container">
+    <view class="productsList-grid">
+      <view a:for="{{productsList}}" class="productsList-item" key="{{item.id}}">
+        <view class="productsList-card">
+          <image src="{{item.image}}" mode="aspectFit" class="productsList-image" />
+          <view class="productsList-info">
+            <view class="productsList-header">
+              <text a:if="{{item.tag}}" class="tag">{{item.tag}}</text>
+              <text class="productsList-name">{{item.name}}</text>
+            </view>
+            <view class="price-section">
+              <text class="price-symbol">¥</text>
+              <text class="price-amount">{{item.price}}</text>
+              <text class="price-unit">/天</text>
+            </view>
+            <view class="rental-info">
+              <text class="rental-text">{{item.rentalStatus}}</text>
+              <text class="rental-text">{{item.rentalType}}</text>
+            </view>
+          </view>
+
+        </view>
+      </view>
+    </view>
+  </view>
+
 
 
   <bottom-nav></bottom-nav>
 </view>
-
