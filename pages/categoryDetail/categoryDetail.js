@@ -168,11 +168,34 @@ Page({
   // 
   handleInput(e) {
     const query = e.detail.value.toLowerCase();
+    console.log('Input Query:', query); // 输出输入内容
     this.setData({
-      searchQuery: query,
-      filteredProducts: this.data.products.filter(product =>
-        product.title.toLowerCase().includes(query) || product.desc.toLowerCase().includes(query)
-      )
+      searchQuery: query
     });
+  },
+
+  handleSearch() {
+    const query = this.data.searchQuery.toLowerCase();
+    console.log('Search Query:', query); // 输出搜索内容
+    const filtered = this.data.products.filter(product => {
+      const title = product.title ? product.title.toLowerCase() : '';
+      const desc = product.desc ? product.desc.toLowerCase() : '';
+      return title.includes(query) || desc.includes(query);
+    });
+    console.log('Filtered Products:', filtered); // 输出过滤后的产品
+    this.setData({
+      filteredProducts: filtered
+    });
+  },
+  handleFilter(e) {
+    const filterType = e.currentTarget.dataset.type;
+    if (filterType === 'comprehensive') {
+      // 显示所有产品
+      this.setData({
+        filteredProducts: this.data.products,
+        activeFilter: filterType
+      });
+    }
+    // 其他排序逻辑可以在这里实现
   }
 });
