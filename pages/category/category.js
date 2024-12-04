@@ -1,9 +1,9 @@
 Page({
   data: {
     categories: [
-      { id: 1, name: '电子产品', icon: '/images/electronics.png', desc: '手机、电脑、平板等' },
-      { id: 2, name: '家居用品', icon: '/images/home.png', desc: '家居用品描述' },
-      { id: 3, name: '服饰', icon: '/images/clothing.png', desc: '服饰描述' }
+      { id: 1, name: '电子产品', icon: '/images/product/1.jpg', desc: '手机、电脑、平板等' },
+      { id: 2, name: '家居用品', icon: '/images/ant.png', desc: '家居用品描述' },
+      { id: 3, name: '服饰', icon: '/images/ant.png', desc: '服饰描述' }
     ]
   },
 
