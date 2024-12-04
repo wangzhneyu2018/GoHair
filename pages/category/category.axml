@@ -1,25 +1,17 @@
 <view class="container">
-  <!-- Header -->
-  <view class="header">
-    <view class="header-left">
-      <image class="back-icon" src="/images/back.png" onTap="onBack" />
-      <text class="header-title">全部</text>
-    </view>
-    <view class="header-right">
-      <image class="header-icon" src="/images/scan.png" />
-      <image class="header-icon" src="/images/more.png" />
-      <image class="header-icon" src="/images/close.png" onTap="onClose" />
-    </view>
-  </view>
-
-  <!-- Category Grid -->
-  <view class="category-grid">
-    <view class="category-item" a:for="{{categories}}" key="{{index}}" onTap="onCategoryTap" data-category="{{item}}">
-      <view class="category-card">
+  <view class="category-list">
+    <view
+      class="category-item"
+      a:for="{{categories}}"
+      a:key="id"
+      data-id="{{item.id}}"
+      onTap="navigateToCategory"
+    >
+      <image src="{{item.icon}}" class="category-icon" />
+      <view class="category-info">
         <text class="category-name">{{item.name}}</text>
-        <image class="category-image" src="{{item.image}}" mode="aspectFit" />
+        <text class="category-desc">{{item.desc}}</text>
       </view>
     </view>
   </view>
 </view>
-

@@ -1,10 +1,5 @@
 <view class="container">
-  <!-- 头部导航 -->
-  <!--<view class="header"> -->
-  <!--<icon type="back" onTap="goBack" />  -->
-  <!--<view class="brand"><text class="brand-name">金龟相伴 财运亨通！</text><text class="brand-slogan">金龟相伴 财运亨通！</text></view>  -->
-  <!--<view class="header-icons"><view class="icon-btn"><image class="icon" src="/assets/qr-code.png" mode="aspectFit" /></view><view class="icon-btn"><image class="icon" src="/assets/more.png" mode="aspectFit" /></view><view class="icon-btn"><image class="icon" src="/assets/close.png" mode="aspectFit" /></view></view> -->
-  <!--</view> -->
+
 
   <!-- 搜索栏 -->
   <view class="search-bar-container">
@@ -25,7 +20,7 @@
 
   <!-- 分类导航 -->
   <view class="category-grid">
-    <view a:for="{{categories}}" class="category-item" key="{{item.id}}">
+    <view a:for="{{categories}}" class="category-item" key="index" onTap="goToCategoryPage" data-id="{{item.id}}" data-name="{{item.name}}">
       <image class="category-icon" src="{{item.icon}}" mode="aspectFit" />
       <text class="category-name">{{item.name}}</text>
       <text a:if="{{item.desc}}" class="category-desc">{{item.desc}}</text>

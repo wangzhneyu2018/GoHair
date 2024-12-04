@@ -1,32 +1,7 @@
 Page({
   data: {
-    categories: [
-      {
-        id: 1,
-        name: '电子产品',
-        icon: '/images/Electronic-Products.png',
-      },
-      {
-        id: 2,
-        name: '厨房设备',
-        icon: '/images/Furniture-Items.png',
-      },
-      {
-        id: 3,
-        name: '办公设备',
-        icon: '/images/Office-Equipment.png',
-      },
-      {
-        id: 4,
-        name: '家用电器',
-        icon: '/images/Furniture-Appliances.png',
-      },
-      {
-        id: 5,
-        name: '全部',
-        icon: '/images/icon/grid.png',
-      }
-    ],
+    categories: [] , // 分类列表初始化为空数组
+   
     // 热阻爆款
     promoTags: [
       { id: 1, name: '热租爆款' },
@@ -155,7 +130,53 @@ Page({
   },
 
   onLoad() {
-    // 页面加载时执行
+    // 模拟从服务器获取分类列表数据
+    this.fetchCategories();
+  },
+  fetchCategories() {
+    // 假设这是从服务器获取数据的模拟
+    const mockData = [
+      {
+        id: 1,
+        name: '电子产品',
+        icon: '/images/Electronic-Products.png',
+      },
+      {
+        id: 2,
+        name: '厨房设备',
+        icon: '/images/Furniture-Items.png',
+      },
+      {
+        id: 3,
+        name: '办公设备',
+        icon: '/images/Office-Equipment.png',
+      },
+      {
+        id: 4,
+        name: '家用电器',
+        icon: '/images/Furniture-Appliances.png',
+      },
+      {
+        id: 5,
+        name: '全部',
+        icon: '/images/icon/grid.png',
+      }
+      // 更多分类
+    ];
+
+    // 将数据设置到页面的 data 中
+    this.setData({
+      categories: mockData 
+    });
+  },
+  goToCategoryPage(event) {
+    const categoryId = event.currentTarget.dataset.id;
+    const categoryName = event.currentTarget.dataset.name;
+
+    // 跳转到对应的页面
+    my.navigateTo({
+      url: `/pages/category/category?id=${categoryId}&name=${categoryName}`
+    });
   },
 
   onSearch() {
