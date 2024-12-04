@@ -2,7 +2,7 @@
 
   <view class="header">
     <view class="header-left">
-      <text class="title">全部分类</text>
+      <text class="title">全部</text>
     </view>
 
   </view>
