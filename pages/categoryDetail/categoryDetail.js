@@ -35,14 +35,13 @@ Page({
       },
     ],
     category: {},
-    products: []
+    products: [],
+    searchQuery: '',
+    filteredProducts: []
   },
 
   onLoad(options) {
     const categoryId = options.id;
-    console.log('options:', options);
-    console.log('categoryId:', categoryId);
-
     if (categoryId) {
       this.loadCategoryAndProducts(categoryId);
     } else {
@@ -55,13 +54,12 @@ Page({
 
   loadCategoryAndProducts(categoryId) {
     const category = this.getCategoryById(categoryId);
-
     if (category) {
-      console.log('category:', category);
       this.setData({
-        category: category
+        category: category,
+        products: category.products,
+        filteredProducts: category.products // 初始化时显示所有产品
       });
-      this.loadProducts(categoryId);
     } else {
       my.showToast({
         type: 'fail',
@@ -159,115 +157,22 @@ Page({
     return categories.find(category => category.id === parseInt(categoryId));
   },
 
-  loadProducts(categoryId) {
-    const products = this.getMockProducts(categoryId);
-    console.log('products:', products);
-    this.setData({
-      products: products
-    });
-  },
+  // loadProducts(categoryId) {
+  //   const products = this.getMockProducts(categoryId);
+  //   console.log('products:', products);
+  //   this.setData({
+  //     products: products
+  //   });
+  // },
 
-  getMockProducts(categoryId) {
-    switch (categoryId) {
-      case 1:
-        return [{
-            id: 1,
-            name: '手机',
-            price: '¥3999',
-            image: '/images/phone.png'
-          },
-          {
-            id: 2,
-            name: '电脑',
-            price: '¥5999',
-            image: '/images/laptop.png'
-          },
-          {
-            id: 3,
-            name: '平板',
-            price: '¥2999',
-            image: '/images/tablet.png'
-          },
-          {
-            id: 4,
-            name: '耳机',
-            price: '¥599',
-            image: '/images/headphones.png'
-          },
-          {
-            id: 5,
-            name: '智能手表',
-            price: '¥1999',
-            image: '/images/smartwatch.png'
-          }
-        ];
-      case 2:
-        return [{
-            id: 1,
-            name: '沙发',
-            price: '¥2999',
-            image: '/images/sofa.png'
-          },
-          {
-            id: 2,
-            name: '餐桌',
-            price: '¥1999',
-            image: '/images/diningtable.png'
-          },
-          {
-            id: 3,
-            name: '椅子',
-            price: '¥499',
-            image: '/images/chair.png'
-          },
-          {
-            id: 4,
-            name: '床',
-            price: '¥3999',
-            image: '/images/bed.png'
-          },
-          {
-            id: 5,
-            name: '书架',
-            price: '¥899',
-            image: '/images/bookshelf.png'
-          }
-        ];
-      case 3:
-        return [{
-            id: 1,
-            name: 'T恤',
-            price: '¥99',
-            image: '/images/tshirt.png'
-          },
-          {
-            id: 2,
-            name: '牛仔裤',
-            price: '¥199',
-            image: '/images/jeans.png'
-          },
-          {
-            id: 3,
-            name: '运动鞋',
-            price: '¥299',
-            image: '/images/sneakers.png'
-          },
-          {
-            id: 4,
-            name: '外套',
-            price: '¥399',
-            image: '/images/jacket.png'
-          },
-          {
-            id: 5,
-            name: '连衣裙',
-            price: '¥299',
-            image: '/images/dress.png'
-          }
-        ];
-      default:
-        console.log('Unknown category ID:', categoryId);
-        return [];
-    }
+  // 
+  handleInput(e) {
+    const query = e.detail.value.toLowerCase();
+    this.setData({
+      searchQuery: query,
+      filteredProducts: this.data.products.filter(product =>
+        product.title.toLowerCase().includes(query) || product.desc.toLowerCase().includes(query)
+      )
+    });
   }
 });
