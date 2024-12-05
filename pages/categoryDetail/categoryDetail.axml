@@ -56,63 +56,13 @@
     </view>
   </view>
   
-  
 
   <!-- Product List -->
 
-
-
-
-
-  <!-- <view class="product-list">
-    <view class="product-item" a:for="{{category.products}}">
-      <view class="product-left">
-        <image class="product-image" src="{{item.image}}" mode="aspectFit"/>
-      </view>
-      <view class="product-right">
-        <view class="product-header">
-          <text class="status-tag">{{item.status}}</text>
-          <text class="product-title">{{item.title}}</text>
-        </view>
-        
-        <block a:if="{{item.promotionTag}}">
-          <view class="promotion-tag">
-            <image class="trophy-icon" src="/assets/icons/trophy.png" mode="aspectFit"/>
-            <text class="promotion-text">{{item.promotionTag}}</text>
-            <text class="arrow"></text>
-          </view>
-        </block>
-  
-        <block a:if="{{item.discountTags}}">
-          <view class="discount-tags">
-            <text class="discount-tag" a:for="{{item.discountTags}}" a:for-item="tag">{{tag}}</text>
-          </view>
-        </block>
-  
-        <view class="service-tags">
-          <text class="service-tag" a:for="{{item.serviceTags}}" a:for-item="tag">{{tag}}</text>
-        </view>
-  
-        <view class="product-footer">
-          <view class="price-info">
-            <text class="price-symbol">¥</text>
-            <text class="price-amount">{{item.price}}</text>
-            <text class="price-unit">/天</text>
-            <text class="rental-count">{{item.rentalCount}}</text>
-          </view>
-          <view class="merchant">
-            <image class="merchant-icon" src="{{item.merchantIcon}}" mode="aspectFit"/>
-          </view>
-        </view>
-      </view>
-    </view>
-  </view>
-   -->
-  
    <view class="product-list">
     <block a:if="{{filteredProducts.length > 0}}">
       <block a:for="{{filteredProducts}}" a:key="id">
-        <view class="product-item">
+        <view class="product-item"  onTap="navigateToProductDetail" data-id="{{item.id}}">
           <view class="product-left">
             <image class="product-image" src="{{item.image}}" mode="aspectFit"/>
           </view>

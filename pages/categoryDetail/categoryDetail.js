@@ -344,6 +344,12 @@ resetFilter() {
     filteredProducts: this.data.products
   });
 },
-
+// 点击跳转到详情页
+navigateToProductDetail(e) {
+  var productId = e.currentTarget.dataset.id;
+  my.navigateTo({
+    url: '/pages/productDetail/productDetail?id=' + productId
+  });
+},
 
 });

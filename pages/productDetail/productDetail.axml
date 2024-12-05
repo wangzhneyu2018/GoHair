@@ -1,0 +1,119 @@
+<view class="container">
+  <!-- 状态栏 -->
+
+
+  <!-- 产品图片 -->
+  <view class="product-image">
+    <swiper
+      class="product-swiper"
+      indicator-dots="true"
+      autoplay="true"
+      interval="3000"
+      duration="500"
+    >
+      <block a:for="{{product.swiperImages}}" a:key="*this">
+        <swiper-item>
+          <image src="{{item}}" mode="aspectFill" class="swiper-image" />
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+
+  <!-- 产品信息 -->
+  <view class="product-container">
+    <!-- 价格展示 -->
+    <view class="price-container">
+      <text class="price-symbol">¥</text>
+      <text class="price-amount">{{product.price}}</text>
+      <text class="price-unit">/天</text>
+    </view>
+
+    <!-- 商品标题 -->
+    <view class="title-container">
+      <text class="tag-new">{{product.status}}</text>
+      <text class="title">{{product.title}}</text>
+    </view>
+
+    <!-- 租赁条款 -->
+    <view class="terms-container">
+      <view >
+        <block  a:for="{{product.services}}" a:key="*this" >
+          <text  class="term-item">{{item}}</text>
+        </block>
+      </view>
+     
+    </view>
+
+    <!-- 支付分信息 -->
+    <view class="credit-container">
+      <view class="credit-content">
+        <image class="credit-icon" src="/assets/icons/zhima.png" mode="aspectFit" />
+        <text class="credit-text">芝麻信用</text>
+        <text class="credit-benefit">免押金</text>
+        <text class="credit-requirement">支付分≥550有机会享</text>
+      </view>
+    </view>
+  </view>
+
+<!-- 租赁流程 -->
+<view class="rental-process">
+  <view class="process-title">租赁流程</view>
+  <view class="process-steps">
+    <!-- 免押下单 -->
+    <view class="step-item">
+      <view class="step-icon">
+        <image class="icon" src="/assets/icons/order.png" mode="aspectFit" />
+      </view>
+      <view class="step-text">免押下单</view>
+    </view>
+    
+    <!-- 箭头 -->
+    <view class="step-arrow"></view>
+    
+    <!-- 商家发货 -->
+    <view class="step-item">
+      <view class="step-icon">
+        <image class="icon" src="/assets/icons/delivery.png" mode="aspectFit" />
+      </view>
+      <view class="step-text">商家发货</view>
+    </view>
+    
+    <!-- 箭头 -->
+    <view class="step-arrow"></view>
+    
+    <!-- 签收使用 -->
+    <view class="step-item">
+      <view class="step-icon">
+        <image class="icon" src="/assets/icons/receive.png" mode="aspectFit" />
+      </view>
+      <view class="step-text">签收使用</view>
+    </view>
+    
+    <!-- 箭头 -->
+    <view class="step-arrow"></view>
+    
+    <!-- 续租/买断/归还 -->
+    <view class="step-item">
+      <view class="step-icon">
+        <image class="icon" src="/assets/icons/renew.png" mode="aspectFit" />
+      </view>
+      <view class="step-text">续租/买断/归还</view>
+    </view>
+  </view>
+</view>
+
+
+
+
+
+  <!-- 底部操作栏 -->
+  <view class="bottom-action">
+    <view class="alipay-score">
+      <image class="alipay-logo" src="/images/alipay-logo.png" />
+      <text class="score-text">支付分≥550有机会享</text>
+      <text class="benefit">免押金</text>
+    </view>
+  </view>
+
+
+</view>
