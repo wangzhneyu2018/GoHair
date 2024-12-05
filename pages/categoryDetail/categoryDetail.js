@@ -41,6 +41,7 @@ Page({
     priceOrder: 'asc',
     salesOrder: 'asc',
     conditionText: '成色', // 设置默认值
+    shippingAddress: '本地' // 用于存储当前位置
   },
 
   onLoad(options) {
@@ -91,7 +92,9 @@ Page({
             promotionTag: '苹果手机热门榜TOP3',
             serviceTags: ['可买断', '可续租', '免赔保障', '租期质保'],
             rentalCount: '89人租过',
+            shippingAddress:'杭州市',
             merchantIcon: '/assets/merchants/merchant1.png'
+        
 
           },
           {
@@ -162,16 +165,7 @@ Page({
     return categories.find(category => category.id === parseInt(categoryId));
   },
 
-  // loadProducts(categoryId) {
-  //   const products = this.getMockProducts(categoryId);
-  //   console.log('products:', products);
-  //   this.setData({
-  //     products: products
-  //   });
-  // },
-
-  // 
-  handleInput(e) {
+    handleInput(e) {
     const query = e.detail.value.toLowerCase();
     console.log('Input Query:', query); // 输出输入内容
     this.setData({
@@ -268,6 +262,9 @@ Page({
     }
 
     // ... 其他排序逻辑
+   
+
+
   },
    // 将handleFilterPanel方法移到外层
    handleFilterPanel() {
@@ -305,9 +302,48 @@ Page({
       duration: 1000
     });
     
-  }
+  },
+// 本地筛选
+getCurrentLocation() {
+  var that = this;
+  my.getLocation({
+    type: 1,
+    success(res) {
+      var currentAddress = res.city; // 使用城市名称
+      that.setData({
+        shippingAddress: currentAddress,
+        activeFilter: 'local' // 设置选中状态
+      });
 
+      // 筛选符合地址的商品
+      var filteredProducts = that.data.products.filter(function(product) {
+        return product.shippingAddress === currentAddress;
+      });
 
+      that.setData({
+        filteredProducts: filteredProducts
+      });
+
+      my.showToast({
+        content: '已筛选本地商品',
+        duration: 1000
+      });
+    },
+    fail() {
+      my.showToast({
+        content: '无法获取当前位置',
+        duration: 1000
+      });
+    }
+  });
+},
+
+resetFilter() {
+  this.setData({
+    activeFilter: '',
+    filteredProducts: this.data.products
+  });
+},
 
 
 });
