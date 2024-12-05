@@ -1,7 +1,25 @@
 Page({
   data: {
-    product: {}
+    product: {},
+    activeTab: 0,
+    tabs: [
+      {
+        title: '商品详情',
+        key: 'details'
+      },
+      {
+        title: '租赁说明',
+        key: 'rental'
+      },
+      {
+        title: '常见问题',
+        key: 'faq'
+      }
+    ]
   },
+// 菜单切换
+ 
+
 
   onLoad(options) {
     const productId = options.id;
@@ -14,6 +32,20 @@ Page({
       });
     }
   },
+  // 菜单切换
+  onTabChange(e) {
+    // 确保这个方法存在
+    console.log('Tab changed:', e);
+  },
+
+  handleTabClick(e) {
+    if (this.onTabChange) {
+      this.onTabChange(e);
+    } else {
+      console.error('onTabChange method is not defined');
+    }
+  },
+
 
   loadProductDetail(productId) {
     // 假设 products 是从服务器获取的或在本地定义的产品数组

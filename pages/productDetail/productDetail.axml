@@ -62,7 +62,7 @@
     <!-- 免押下单 -->
     <view class="step-item">
       <view class="step-icon">
-        <image class="icon" src="/assets/icons/order.png" mode="aspectFit" />
+        <image class="icon" src="/images/order.png" mode="aspectFit" />
       </view>
       <view class="step-text">免押下单</view>
     </view>
@@ -73,7 +73,7 @@
     <!-- 商家发货 -->
     <view class="step-item">
       <view class="step-icon">
-        <image class="icon" src="/assets/icons/delivery.png" mode="aspectFit" />
+        <image class="icon" src="/images/delivery.png" mode="aspectFit" />
       </view>
       <view class="step-text">商家发货</view>
     </view>
@@ -84,7 +84,7 @@
     <!-- 签收使用 -->
     <view class="step-item">
       <view class="step-icon">
-        <image class="icon" src="/assets/icons/receive.png" mode="aspectFit" />
+        <image class="icon" src="/images/receive.png" mode="aspectFit" />
       </view>
       <view class="step-text">签收使用</view>
     </view>
@@ -95,7 +95,7 @@
     <!-- 续租/买断/归还 -->
     <view class="step-item">
       <view class="step-icon">
-        <image class="icon" src="/assets/icons/renew.png" mode="aspectFit" />
+        <image class="icon" src="/images/renew.png" mode="aspectFit" />
       </view>
       <view class="step-text">续租/买断/归还</view>
     </view>
@@ -103,6 +103,108 @@
 </view>
 
 
+<view class="product-details">
+  <!-- 配送信息 -->
+  <view class="detail-item delivery">
+    <view class="item-label">配送</view>
+    <view class="item-content">
+      <text class="highlight-text">现货</text>
+      <text class="normal-text">，预计付款后48小时内发货</text>
+    </view>
+    <view class="arrow"></view>
+  </view>
+
+  <!-- 保障信息 -->
+  <view class="detail-item guarantee">
+    <view class="item-label">保障</view>
+    <view class="item-content">
+      <view class="guarantee-item">
+        <image class="guarantee-icon" src="/assets/icons/shield.png" mode="aspectFit" />
+        <text>免赔保障</text>
+      </view>
+      <view class="guarantee-item">
+        <image class="guarantee-icon" src="/assets/icons/quality.png" mode="aspectFit" />
+        <text>租期质保</text>
+      </view>
+    </view>
+    <view class="arrow"></view>
+  </view>
+
+  <!-- 参数信息 -->
+  <view class="detail-item params">
+    <view class="item-label">参数</view>
+    <view class="item-content">
+      <text>APPLE/平果</text>
+      <text class="separator">|</text>
+      <text>中国大陆</text>
+      <text class="separator">|</text>
+      <text>Y</text>
+      <text class="separator">|</text>
+      <text>N</text>
+      <text class="separator">|</text>
+      <text>N</text>
+      <text class="separator">|</text>
+      <text>Y</text>
+    </view>
+    <view class="arrow"></view>
+  </view>
+
+  <!-- 选择信息 -->
+  <view class="detail-item selection">
+    <view class="item-label">选择</view>
+    <view class="item-content">
+      <text>到期续租/归还/买断</text>
+      <text class="separator">|</text>
+      <text>沙漠色钛金属</text>
+      <text class="separator">|</text>
+      <text>256G</text>
+    </view>
+    <view class="arrow"></view>
+  </view>
+</view>
+
+
+<!-- 切换菜单栏 -->
+<view class="tab-navigator">
+  <!-- 导航标签栏 -->
+  <view class="tab-bar">
+    <view 
+      a:for="{{tabs}}" 
+      key="{{index}}"
+      class="tab-item {{activeTab === index ? 'active' : ''}}"
+      onTap="handleTabClick"
+      data-index="{{index}}"
+    >
+      <text class="tab-text">{{item.title}}</text>
+    </view>
+  </view>
+
+  <!-- 内容区域 -->
+  <view class="content-area">
+    <!-- 商品详情 -->
+    <view class="tab-content" a:if="{{activeTab === 0}}">
+      
+      <view class="product-details">
+        <!-- 商品详情内容 -->
+        我是商品详情
+      </view>
+    </view>
+
+    <!-- 租赁说明 -->
+    <view class="tab-content" a:if="{{activeTab === 1}}">
+      <view class="rental-instructions">
+        我是做了什么
+      </view>
+    </view>
+
+    <!-- 常见问题 -->
+    <view class="tab-content" a:if="{{activeTab === 2}}">
+      <view class="faq-content">
+        问题
+      </view>
+    </view>
+  </view>
+</view>
 
 
 
