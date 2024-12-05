@@ -196,6 +196,33 @@ Page({
         activeFilter: filterType
       });
     }
-    // 其他排序逻辑可以在这里实现
+    // 价格排序逻辑可以在这里实现
+    else if (filterType === 'price') {
+      let newPriceOrder = this.data.priceOrder === 'asc' ? 'desc' : 'asc';
+      
+      // 对产品按价格排序
+      const sortedProducts = [...this.data.filteredProducts].sort((a, b) => {
+        if (newPriceOrder === 'asc') {
+          return a.price - b.price; // 升序
+        } else {
+          return b.price - a.price; // 降序
+        }
+      });
+
+      // 更新状态
+      this.setData({
+        filteredProducts: sortedProducts,
+        activeFilter: filterType,
+        priceOrder: newPriceOrder
+      });
+
+      // 显示排序方向提示
+      // my.showToast({
+      //   content: newPriceOrder === 'asc' ? '价格从低到高排序' : '价格从高到低排序',
+      //   duration: 1000
+      // });
+    }
+    // ... 其他排序逻辑
+    
   }
 });
