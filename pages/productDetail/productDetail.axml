@@ -55,54 +55,9 @@
     </view>
   </view>
 
-<!-- 租赁流程 -->
-<view class="rental-process">
-  <view class="process-title">租赁流程</view>
-  <view class="process-steps">
-    <!-- 免押下单 -->
-    <view class="step-item">
-      <view class="step-icon">
-        <image class="icon" src="/images/order.png" mode="aspectFit" />
-      </view>
-      <view class="step-text">免押下单</view>
-    </view>
-    
-    <!-- 箭头 -->
-    <view class="step-arrow"></view>
-    
-    <!-- 商家发货 -->
-    <view class="step-item">
-      <view class="step-icon">
-        <image class="icon" src="/images/delivery.png" mode="aspectFit" />
-      </view>
-      <view class="step-text">商家发货</view>
-    </view>
-    
-    <!-- 箭头 -->
-    <view class="step-arrow"></view>
-    
-    <!-- 签收使用 -->
-    <view class="step-item">
-      <view class="step-icon">
-        <image class="icon" src="/images/receive.png" mode="aspectFit" />
-      </view>
-      <view class="step-text">签收使用</view>
-    </view>
-    
-    <!-- 箭头 -->
-    <view class="step-arrow"></view>
-    
-    <!-- 续租/买断/归还 -->
-    <view class="step-item">
-      <view class="step-icon">
-        <image class="icon" src="/images/renew.png" mode="aspectFit" />
-      </view>
-      <view class="step-text">续租/买断/归还</view>
-    </view>
-  </view>
-</view>
 
 
+<!-- 产品参数 -->
 <view class="product-details">
   <!-- 配送信息 -->
   <view class="detail-item delivery">
@@ -193,16 +148,88 @@
     <!-- 租赁说明 -->
     <view class="tab-content" a:if="{{activeTab === 1}}">
       <view class="rental-instructions">
-        我是做了什么
+        <!-- 租赁流程 -->
+        <view class="process-container">
+          <view class="section">
+            <view class="section-title">
+              <text class="section-number">01</text>
+              租赁流程
+            </view>
+            <view class="steps">
+              <block a:for="{{steps}}">
+                <view class="step">
+                  <image class="step-icon" src="{{item.icon}}" />
+                  <text class="step-text">{{item.text}}</text>
+                  <text class="step-subtext">{{item.subtext}}</text>
+                </view>
+              </block>
+            </view>
+          </view>
+        
+          <view class="section">
+            <view class="section-title">
+              <text class="section-number">02</text>
+              租赁计算
+            </view>
+            <text>签收次日开始算</text>
+            <text class="subtitle">假设您选择租期为4天（来回物流不算租期）</text>
+            <view class="calendar">
+              <block a:for="{{days}}">
+                <view class="day {{(item >= selectedStartDay && item <= selectedEndDay) ? 'selected' : ''}}">
+                  {{item}}
+                </view>
+              </block>
+            </view>
+          </view>
+        
+          <view class="section">
+            <view class="section-title">
+              <text class="section-number">03</text>
+              租后方案
+            </view>
+            <block a:for="{{postRentalOptions}}">
+              <view class="option">
+                <view class="option-title">{{item.title}}</view>
+                <view class="option-desc">{{item.desc}}</view>
+              </view>
+            </block>
+          </view>
+        </view>
+        
+        
       </view>
     </view>
 
     <!-- 常见问题 -->
     <view class="tab-content" a:if="{{activeTab === 2}}">
-      <view class="faq-content">
-        问题
-      </view>
-    </view>
+      <view class="rental-instructions">
+        <!-- 租赁流程 -->
+       
+        
+        <view class="faq-container">
+          <block a:for="{{faqList}}" a:for-index="index">
+            <view class="faq-item">
+              <view class="question-wrapper" onTap="toggleAnswer" data-index="{{index}}">
+                <text class="question">{{item.question}}</text>
+                <image 
+                  class="arrow {{activeIndex === index ? 'active' : ''}}" 
+                  src="/assets/icons/arrow-down.png" 
+                  mode="aspectFit"
+                />
+              </view>
+              <view class="answer {{activeIndex === index ? 'active' : ''}}">
+                <view class="answer-content">{{item.answer}}</view>
+              </view>
+            </view>
+          </block>
+        </view>
+        
+        
+        
+      
+
+
+    
   </view>
 </view>
 

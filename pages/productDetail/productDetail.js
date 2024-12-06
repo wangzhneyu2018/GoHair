@@ -15,6 +15,59 @@ Page({
         title: '常见问题',
         key: 'faq'
       }
+    ],
+    steps: [
+      { icon: '/images/order.png', text: '免押下单', subtext: '选购商品' },
+      { icon: '/images/delivery.png', text: '商家发货', subtext: '申转通过后' },
+      { icon: '/images/receive.png', text: '签收使用', subtext: '开启体验' },
+      { icon: '/images/renew.png', text: '到期', subtext: '续租/买断/归还' }
+    ],
+    selectedStartDay: 2,
+    selectedEndDay: 5,
+    days: [1, 2, 3, 4, 5, 6],
+    postRentalOptions: [
+      { title: '续租', desc: '查看订单 > 一键续租(按订单日租金续租) > 支付租金 > 继续租用' },
+      { title: '买断', desc: '查看订单 > 一键买断(若商品支持买断) > 支付尾款 > 终身所有' },
+      { title: '归还', desc: '查看订单 > 自行寄回设备 > 商家签收并质检设备 > 解冻押金' }
+    ],
+    // 问题
+    activeIndex: 0,
+    faqList: [
+      {
+        key: '0',
+        question: '关于租期计算问题?',
+        answer: '租期是从用户签收日次日起计算（正常是按快递送到次日，由于用户原因延迟签收时间的，延迟时间计入租期内）。具体以租赁订单为准。'
+      },
+      {
+        key: '1',
+        question: '取消订单后什么时候退款?',
+        answer: '订单取消后资金会立即原路退回，到账时间以银行实际处理时间为准。'
+      },
+      {
+        key: '2',
+        question: '发货前的订单能不能取消?',
+        answer: '发货前的订单可以申请取消，请联系客服处理。'
+      },
+      {
+        key: '3',
+        question: '订单到期后如何归还?',
+        answer: '订单到期后请按照原包装进行打包，联系客服获取退货地址进行寄回。'
+      },
+      {
+        key: '4',
+        question: '订单如何续租?',
+        answer: '可在订单详情页面选择续租，选择续租时间并完成支付即可。'
+      },
+      {
+        key: '5',
+        question: '可以提前归还吗？需付付违约金吗？',
+        answer: '可以提前归还，但租金会按照实际使用天数计算，不收取违约金。'
+      },
+      {
+        key: '6',
+        question: '为什么没备归还后订单还有余额?',
+        answer: '归还后余额可能是押金或未结算的费用，确认商品完好后会自动退还。'
+      }
     ]
   },
 // 菜单切换
@@ -44,6 +97,16 @@ Page({
       activeTab: index
     });
   },
+  // 切换答案
+  // 显示或隐藏答案的函数
+  toggleAnswer(event) {
+    const index = event.currentTarget.dataset.index
+    this.setData({
+      activeIndex: this.data.activeIndex === index ? -1 : index
+    })
+  },
+
+
   loadProductDetail(productId) {
     // 假设 products 是从服务器获取的或在本地定义的产品数组
     const products = [
