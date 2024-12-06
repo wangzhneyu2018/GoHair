@@ -1,7 +1,7 @@
 Page({
   data: {
     product: {},
-    activeTab: 0,
+    activeTab: 0,  //激活第一个Tab
     tabs: [
       {
         title: '商品详情',
@@ -39,14 +39,11 @@ Page({
   },
 
   handleTabClick(e) {
-    if (this.onTabChange) {
-      this.onTabChange(e);
-    } else {
-      console.error('onTabChange method is not defined');
-    }
+    const index = e.currentTarget.dataset.index;
+    this.setData({
+      activeTab: index
+    });
   },
-
-
   loadProductDetail(productId) {
     // 假设 products 是从服务器获取的或在本地定义的产品数组
     const products = [
