@@ -1,3 +1,0 @@
-<view class="cart-page">
-  <order-list orders="{{orders}}"></order-list>
-</view>

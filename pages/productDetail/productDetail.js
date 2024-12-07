@@ -83,7 +83,7 @@ Page({
       },
       {
         key: '5',
-        question: '可以提前归还吗？需付付违约金吗？',
+        question: '可以提前归还吗？���付违约金吗？',
         answer: '可以提前归还，但租金会按照实际使用天数计算，不收取违约金。'
       },
       {
@@ -123,7 +123,7 @@ Page({
       activeTab: index
     });
   },
-  // 切换答��
+  // 切换答
   // 显示或隐藏答案的函数
   toggleAnswer(event) {
     const index = event.currentTarget.dataset.index
@@ -193,15 +193,15 @@ Page({
     });
   },
   onBuyTap() {
-    // 跳转到购买页面
+    const product = this.data.product;
     my.navigateTo({
-      url: '/pages/buy/buy'
-    });
+      url: `/pages/order/order?id=${product.id
+}`    });
   },
   onRentTap() {
-    // 跳转到租赁页面
+    const product = this.data.product;
     my.navigateTo({
-      url: '/pages/rent/rent'
+      url: `/pages/rentOrder/rentOrder?id=${product.id}`
     });
   },
   // 客服电话弹出框

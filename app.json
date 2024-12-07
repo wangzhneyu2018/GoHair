@@ -5,7 +5,9 @@
     "pages/cart/cart",
     "pages/profile/profile",
     "pages/categoryDetail/categoryDetail",
-    "pages/productDetail/productDetail"
+    "pages/productDetail/productDetail",
+    "pages/purchaseOrder/purchaseOrder",
+    "pages/rentOrder/rentOrder"
   ],
   "window": {
     "defaultTitle": "金龟分期租",
