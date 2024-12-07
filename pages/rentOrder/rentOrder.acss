@@ -1,69 +1,153 @@
-/* 头像组件样式 */
-.avatar {
-  margin: 8px;
-}
-.avatar-custom {
-  margin: 8px;
-}
-.avatar-custom image {
-  width: 40px;
-  height: 40px;
-}
-/* 订单列表 */
-/* 订单容器 */
-.order-container {
-  padding: 20rpx;
+.rental-page {
+  background: #f5f5f5;
+  min-height: 100vh;
+  padding-bottom: 120rpx;
 }
 
-/* 分类导航 */
-.order-nav {
+.product-header {
+  background: #fff;
+  padding: 30rpx;
+  margin-bottom: 20rpx;
+}
+
+.product-image {
+  width: 120rpx;
+  height: 120rpx;
+  margin-bottom: 20rpx;
+}
+
+.price-info {
+  margin-bottom: 16rpx;
+}
+
+.daily-price {
   display: flex;
-  justify-content: space-around;
+  align-items: baseline;
+}
+
+.price-symbol {
+  font-size: 28rpx;
+  color: #ff4d4f;
+}
+
+.price-value {
+  font-size: 40rpx;
+  font-weight: bold;
+  color: #ff4d4f;
+  margin-right: 4rpx;
+}
+
+.price-unit {
+  font-size: 24rpx;
+  color: #ff4d4f;
+}
+
+.original-price {
+  font-size: 24rpx;
+  color: #999;
+  text-decoration: line-through;
+  margin-left: 16rpx;
+}
+
+.total-price {
+  font-size: 26rpx;
+  color: #666;
+}
+
+.selected-options {
+  font-size: 26rpx;
+  color: #666;
+  margin-top: 16rpx;
+}
+
+.section {
+  background: #fff;
+  padding: 30rpx;
+  margin-bottom: 2rpx;
+}
+
+.section-title {
+  font-size: 28rpx;
+  color: #333;
   margin-bottom: 20rpx;
-  border-bottom: 1rpx solid #ddd;
 }
 
-.order-nav view {
-  padding: 10rpx 20rpx;
-  cursor: pointer;
-}
-
-.order-nav .active {
-  color: #1890ff;
-  border-bottom: 2rpx solid #1890ff;
-}
-
-/* 订单状态导航 */
-.status-nav {
+.rental-plans,
+.color-options,
+.storage-options,
+.period-options {
   display: flex;
-  justify-content: space-around;
-  margin-bottom: 20rpx;
-  border-bottom: 1rpx solid #ddd;
+  flex-wrap: wrap;
+  gap: 20rpx;
 }
 
-.status-nav view {
-  padding: 10rpx 20rpx;
-  cursor: pointer;
+.option-item {
+  padding: 12rpx 24rpx;
+  border-radius: 6rpx;
+  font-size: 26rpx;
+  color: #333;
+  background: #f5f5f5;
+  border: 2rpx solid transparent;
 }
 
-.status-nav .active {
-  color: #1890ff;
-  border-bottom: 2rpx solid #1890ff;
+.option-item.selected {
+  background: #e6f7ff;
+  border-color: #1677ff;
+  color: #1677ff;
 }
 
-/* 订单内容展示 */
-.order-list {
-  padding: 20rpx;
-  border: 1rpx solid #ddd;
-  border-radius: 8rpx;
+.rental-start-notice {
+  font-size: 26rpx;
+  color: #999;
 }
 
-.order-item {
-  margin-bottom: 20rpx;
-  padding-bottom: 10rpx;
-  border-bottom: 1rpx solid #eee;
+.quantity-selector {
+  display: flex;
+  align-items: center;
+  width: fit-content;
 }
 
-.order-item:last-child {
-  border-bottom: none;
+.quantity-btn {
+  width: 60rpx;
+  height: 60rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f5f5f5;
+  font-size: 36rpx;
 }
+
+.quantity-btn.disabled {
+  color: #ccc;
+}
+
+.quantity-input {
+  width: 100rpx;
+  height: 60rpx;
+  text-align: center;
+  background: #fff;
+  margin: 0 2rpx;
+  font-size: 28rpx;
+}
+
+.bottom-button {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20rpx 30rpx;
+  background: #fff;
+  box-shadow: 0 -2rpx 10rpx rgba(0, 0, 0, 0.05);
+}
+
+.confirm-button {
+  background: #1677ff;
+  color: #fff;
+  font-size: 32rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+  border-radius: 44rpx;
+  text-align: center;
+  border: none;
+}
+
