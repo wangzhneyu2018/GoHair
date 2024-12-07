@@ -187,7 +187,6 @@
           </view>
         </view>
       </view>
-
       <!-- 常见问题 -->
       <view a:if="{{activeTab === 2}}" class="tab-content">
         <view class="rental-instructions">
@@ -216,31 +215,41 @@
 
         </view>
       </view>
+    </view>
 
-
-
-      <!-- 底部操作栏 -->
-      <view class="bottom-nav">
-        <view class="nav-items">
-          <view class="nav-item" onTap="onHomeTap">
-            <image class="nav-icon" src="/assets/home-icon.png" mode="aspectFit" />
-            <text class="nav-text">首页</text>
-          </view>
-          <view class="nav-item" onTap="onServiceTap">
-            <image class="nav-icon" src="/assets/service-icon.png" mode="aspectFit" />
-            <text class="nav-text">客服</text>
-          </view>
+    <!-- 底部操作栏 -->
+    <view class="bottom-nav">
+      <view class="nav-items">
+        <view class="nav-item" onTap="onHomeTap">
+          <image class="nav-icon" src="/assets/home-icon.png" mode="aspectFit" />
+          <text class="nav-text">首页</text>
         </view>
-        <view class="action-buttons">
-          <button class="buy-button" onTap="onBuyTap">
-            <text class="button-text">直接购买</text>
-            <text class="button-subtext">¥{{product.retailPrice}}</text>
-          </button>
-          <button class="rent-button" onTap="onRentTap">
-            <text class="button-text">免押租赁</text>
-            <text class="button-subtext">¥{{product.dailyRent}}/天起</text>
-          </button>
+        <view class="nav-item" onTap="showPopup">
+          <image class="nav-icon" src="/assets/service-icon.png" mode="aspectFit" />
+          <text class="nav-text">客服</text>
         </view>
       </view>
-
+      <view class="action-buttons">
+        <button class="buy-button" onTap="onBuyTap">
+          <text class="button-text">直接购买</text>
+          <text class="button-subtext">¥{{product.retailPrice}}</text>
+        </button>
+        <button class="rent-button" onTap="onRentTap">
+          <text class="button-text">免押租赁</text>
+          <text class="button-subtext">¥{{product.dailyRent}}/天起</text>
+        </button>
+      </view>
     </view>
+<!-- 客服弹出框 -->
+<view class="popup" a:if="{{isPopupVisible}}">
+  <view class="popup-content">
+    <view class="popup-title">及时高效的沟通方式</view>
+    <view class="popup-message">是否拨打 “{{product.serviceProvider}}” 官方客服电话?</view>
+    <view class="popup-buttons">
+      <button class="popup-button cancel" onTap="hidePopup">取消</button>
+      <button class="popup-button confirm" onTap="makePhoneCall">确定</button>
+    </view>
+  </view>
+</view>
+
+</view>

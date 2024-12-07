@@ -1,9 +1,10 @@
 Page({
   data: {
-    product: {},
-    activeTab: 0,  //激活第一个Tab
-    tabs: [
-      {
+    product: {
+      CustomerPhone: '18511907806'
+    },
+    activeTab: 0, //激活第一个Tab
+    tabs: [{
         title: '商品详情',
         key: 'details'
       },
@@ -16,24 +17,46 @@ Page({
         key: 'faq'
       }
     ],
-    steps: [
-      { icon: '/images/order.png', text: '免押下单', subtext: '选购商品' },
-      { icon: '/images/delivery.png', text: '商家发货', subtext: '申转通过后' },
-      { icon: '/images/receive.png', text: '签收使用', subtext: '开启体验' },
-      { icon: '/images/renew.png', text: '到期', subtext: '续租/买断/归还' }
+    steps: [{
+        icon: '/images/order.png',
+        text: '免押下单',
+        subtext: '选购商品'
+      },
+      {
+        icon: '/images/delivery.png',
+        text: '商家发货',
+        subtext: '申转通过后'
+      },
+      {
+        icon: '/images/receive.png',
+        text: '签收使用',
+        subtext: '开启体验'
+      },
+      {
+        icon: '/images/renew.png',
+        text: '到期',
+        subtext: '续租/买断/归还'
+      }
     ],
     selectedStartDay: 2,
     selectedEndDay: 5,
     days: [1, 2, 3, 4, 5, 6],
-    postRentalOptions: [
-      { title: '续租', desc: '查看订单 > 一键续租(按订单日租金续租) > 支付租金 > 继续租用' },
-      { title: '买断', desc: '查看订单 > 一键买断(若商品支持买断) > 支付尾款 > 终身所有' },
-      { title: '归还', desc: '查看订单 > 自行寄回设备 > 商家签收并质检设备 > 解冻押金' }
+    postRentalOptions: [{
+        title: '续租',
+        desc: '查看订单 > 一键续租(按订单日租金续租) > 支付租金 > 继续租用'
+      },
+      {
+        title: '买断',
+        desc: '查看订单 > 一键买断(若商品支持买断) > 支付尾款 > 终所有'
+      },
+      {
+        title: '归还',
+        desc: '查看订单 > 自行寄回设备 > 商家签收并质检设备 > 解冻押金'
+      }
     ],
     // 问题
     activeIndex: 0,
-    faqList: [
-      {
+    faqList: [{
         key: '0',
         question: '关于租期计算问题?',
         answer: '租期是从用户签收日次日起计算（正常是按快递送到次日，由于用户原因延迟签收时间的，延迟时间计入租期内）。具体以租赁订单为准。'
@@ -56,7 +79,7 @@ Page({
       {
         key: '4',
         question: '订单如何续租?',
-        answer: '可在订单详情页面选择续租，选择续租时间并完成支付即可。'
+        answer: '在订单详情页面选择续租，选择续租时间并完成支付即可。'
       },
       {
         key: '5',
@@ -65,13 +88,16 @@ Page({
       },
       {
         key: '6',
-        question: '为什么没备归还��订单还有余额?',
+        question: '为什么没备归还订单还有余额?',
         answer: '归还后余额可能是押金或未结算的费用，确认商品完好后会自动退还。'
       }
-    ]
+    ],
+    // 客服
+    isPopupVisible: false,
+    phoneNumber: '10086' // 这里设置要拨打的电话号码
   },
-// 菜单切换
- 
+  // 菜单切换
+
 
 
   onLoad(options) {
@@ -97,7 +123,7 @@ Page({
       activeTab: index
     });
   },
-  // 切换答案
+  // 切换答��
   // 显示或隐藏答案的函数
   toggleAnswer(event) {
     const index = event.currentTarget.dataset.index
@@ -108,9 +134,8 @@ Page({
 
 
   loadProductDetail(productId) {
-    // 假设 products 是从服务器获取的或在本地定义的产品数组
-    const products = [
-      {
+    // 假设 products 是从服务器获取的或在地定义的产品数组
+    const products = [{
         id: 101,
         name: 'iPhone 13',
         dailyRent: 6999,
@@ -120,15 +145,18 @@ Page({
         swiperImages: [
           '/images/product/1.jpg',
           '/images/product/2.jpg',
-          '/images/product/2.jpg'],
+          '/images/product/2.jpg'
+        ],
         status: '全新',
         title: '【12月促销季】首月五折 iPhone 15promax 全新 通过率高',
         services: ['可买断', '可续租', '免赔保障', '租期质保'],
         promotionTag: '苹果手机热门榜TOP3',
         serviceTags: ['可买断', '可续租', '免赔保障', '租期质保'],
         rentalCount: '89人租过',
-        shippingAddress:'杭州市',
-        merchantIcon: '/assets/merchants/merchant1.png'
+        shippingAddress: '杭州市',
+        merchantIcon: '/assets/merchants/merchant1.png',
+        CustomerPhone: '18511907806',
+        serviceProvider:'京宝爷'
       },
       // 其他产品信息
     ];
@@ -140,7 +168,6 @@ Page({
       });
     } else {
       my.showToast({
-        type: 'fail',
         content: '未找到产品信息'
       });
     }
@@ -154,9 +181,15 @@ Page({
     });
   },
   onServiceTap() {
-    // 跳转到客服页面
-    my.navigateTo({
-      url: '/pages/service/service'
+    const phoneNumber = this.data.product.CustomerPhone;
+    my.makePhoneCall({
+      number: phoneNumber,
+      success: () => {
+        console.log('拨号成功');
+      },
+      fail: (error) => {
+        console.error('拨号失败', error);
+      }
     });
   },
   onBuyTap() {
@@ -169,6 +202,38 @@ Page({
     // 跳转到租赁页面
     my.navigateTo({
       url: '/pages/rent/rent'
+    });
+  },
+  // 客服电话弹出框
+  showPopup() {
+    this.setData({
+      isPopupVisible: true
+    });
+  },
+
+  hidePopup() {
+    this.setData({
+      isPopupVisible: false
+    });
+  },
+
+  makePhoneCall() {
+    const phoneNumber = this.data.product.CustomerPhone;
+    my.makePhoneCall({
+      number: phoneNumber,
+      success: () => {
+        console.log('拨打电话成功');
+        this.hidePopup();
+      },
+      fail: (error) => {
+        console.error('拨打电话失败:', error);
+        my.showToast({
+          type: 'exception',
+          content: '拨打电话失败,请重试',
+          duration: 2000
+        });
+        this.hidePopup();
+      }
     });
   }
 });
