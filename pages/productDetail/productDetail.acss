@@ -474,3 +474,82 @@ width: 100%;
   line-height: 1.6;
 }
 
+/*底部导航栏 */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #ffffff;
+  border-top: 1rpx solid #e5e5e5;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10rpx 20rpx;
+  height: 120rpx;
+}
+
+.nav-items {
+  display: flex;
+  gap: 40rpx;
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.nav-icon {
+  width: 48rpx;
+  height: 48rpx;
+}
+
+.nav-text {
+  font-size: 24rpx;
+  color: #333333;
+  margin-top: 4rpx;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 20rpx;
+}
+
+.buy-button, .rent-button {
+  border-radius: 40rpx;
+  padding: 16rpx 32rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.buy-button {
+  background-color: #e6f3ff;
+}
+
+.rent-button {
+  background-color: #108ee9;
+}
+
+.button-text {
+  font-size: 28rpx;
+  line-height: 1;
+}
+
+.button-subtext {
+  font-size: 22rpx;
+  line-height: 1;
+  margin-top: 4rpx;
+}
+
+.buy-button .button-text,
+.buy-button .button-subtext {
+  color: #108ee9;
+}
+
+.rent-button .button-text,
+.rent-button .button-subtext {
+  color: #ffffff;
+}
+

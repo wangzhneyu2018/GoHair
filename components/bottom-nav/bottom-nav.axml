@@ -1,7 +1,0 @@
-<view class="bottom-nav">
-  <!-- 导航栏内容，例如四个选项卡 -->
-  <view class="nav-item" a:for="{{navList}}" a:key="index" onTap="onNavItemTap" data-index="{{index}}">
-    <image src="{{item.icon}}" class="nav-icon"></image>
-    <text class="nav-text">{{item.text}}</text>
-  </view>
-</view>

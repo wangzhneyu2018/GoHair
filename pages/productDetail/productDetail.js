@@ -65,7 +65,7 @@ Page({
       },
       {
         key: '6',
-        question: '为什么没备归还后订单还有余额?',
+        question: '为什么没备归还��订单还有余额?',
         answer: '归还后余额可能是押金或未结算的费用，确认商品完好后会自动退还。'
       }
     ]
@@ -113,7 +113,8 @@ Page({
       {
         id: 101,
         name: 'iPhone 13',
-        price: 6999,
+        dailyRent: 6999,
+        retailPrice: 12000,
         stock: 10,
         image: '/images/product/1.jpg',
         swiperImages: [
@@ -143,5 +144,31 @@ Page({
         content: '未找到产品信息'
       });
     }
+  },
+
+  // 底部导航栏
+  onHomeTap() {
+    // 跳转到首页
+    my.switchTab({
+      url: '/pages/index/index'
+    });
+  },
+  onServiceTap() {
+    // 跳转到客服页面
+    my.navigateTo({
+      url: '/pages/service/service'
+    });
+  },
+  onBuyTap() {
+    // 跳转到购买页面
+    my.navigateTo({
+      url: '/pages/buy/buy'
+    });
+  },
+  onRentTap() {
+    // 跳转到租赁页面
+    my.navigateTo({
+      url: '/pages/rent/rent'
+    });
   }
 });

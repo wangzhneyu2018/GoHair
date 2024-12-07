@@ -1,9 +1,5 @@
 {
   "defaultTitle": "金龟分期租",
   "titleBarColor": "#4392F9 ",
-  "transparentTitle": "none",
-  "usingComponents": {
-    "bottom-nav": "/components/bottom-nav/bottom-nav"
-   
-  }
+  "transparentTitle": "none"
 }
